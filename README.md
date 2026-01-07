@@ -94,3 +94,76 @@ University/
 │
 ├── Program.cs
 └── appsettings.json
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Requirements
+- **.NET 8 SDK**
+- **dotnet-ef** tool
+
+Install EF Core CLI (if not installed):
+```bash
+dotnet tool install --global dotnet-ef
+
+
+dotnet restore
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+dotnet run
+
+👑 Default Roles (seeded)
+	•	Admin
+	•	Student
+	•	Lecturer
+
+Admin account is created via SeedData (for development only).
+Credentials are not shown in UI.
+
+
+🔒 Security Notes
+	•	Automatic logout after 10 minutes of inactivity
+	•	Cookies configured with:
+	•	HttpOnly
+	•	SameSite=Lax
+	•	Cache disabled for authenticated pages
+	•	Browser back-button login illusion fixed (no-store + JS pageshow reload)
+
+⸻
+
+🧠 Design Decisions
+	•	Groups are the central unit:
+	•	Students → Group
+	•	Subjects → Group
+	•	Enrollment handled automatically
+	•	Avoided nested HTML forms (stable bulk & single operations)
+	•	Simple, readable EF Core relationships
+	•	UI optimized for dark mode first
+
+⸻
+
+🛣 Possible Extensions
+	•	Grades & exams
+	•	Lecturer self-management
+	•	Student self-enrollment (with rules)
+	•	Notifications
+	•	REST API
+	•	React / Blazor frontend
+
+⸻
+
+📜 License
+
+This project is for educational purposes.
+Feel free to fork, modify and experiment.
+
+⸻
+
+👋 Author
+
+Built as a learning project to understand:
+	•	ASP.NET Core MVC
+	•	Identity & security
+	•	EF Core relationships
+	•	real-world admin workflows
